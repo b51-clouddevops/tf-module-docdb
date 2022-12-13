@@ -3,7 +3,5 @@ resource "aws_docdb_cluster" "docdb" {
   engine                  = "docdb"
   master_username         = "admin1"
   master_password         = "roboshop1"
-#   backup_retention_period = 5                  Not using backup options in lab
-#   preferred_backup_window = "07:00-09:00"
-  skip_final_snapshot     = true
+  skip_final_snapshot     = false                     # Make it false in lab only
 }
