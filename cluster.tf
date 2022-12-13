@@ -1,4 +1,4 @@
-# # Creates DocDB Cluster
+# # Creates DocDB Cluster ( Just cluster, not the instances. Instances has to be mentioned/created)
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier    = "roboshop-${var.ENV}"
   engine                = "docdb"
@@ -17,4 +17,12 @@ resource "aws_docdb_subnet_group" "docdb" {
   tags = {
     Name = "robot-docdb-${var.ENV}"
   }
+}
+
+# Creates the nodes needed for the created DOCDB Cluster
+resource "aws_docdb_cluster_instance" "cluster_instances" {
+  count              = 1
+  identifier         = "docdb-cluster-demo-${count.index}"
+  cluster_identifier = aws_docdb_cluster.default.id
+  instance_class     = "db.r5.large"
 }
