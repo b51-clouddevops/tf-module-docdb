@@ -8,3 +8,11 @@ resource "aws_docdb_cluster" "docdb" {
 }
 
 # Creates a subnet group , where our cluster will be hosted on
+resource "aws_docdb_subnet_group" "docdb" {
+  name       = "roboshop-docdb-${var.ENV}"
+  subnet_ids = [aws_subnet.frontend.id, aws_subnet.backend.id]
+
+  tags = {
+    Name = "My docdb subnet group"
+  }
+}
