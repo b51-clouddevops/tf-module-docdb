@@ -3,6 +3,6 @@ data "terraform_remote_state" "vpc" {
   config {
     bucket = "b51-tf-remote-state-bucket"
     key    = "vpc/${var.ENV}/terraform.tfstate"
-    region = "my-region"
+    region = "us-east-1"
   }
 }
