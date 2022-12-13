@@ -4,6 +4,7 @@ resource "aws_docdb_cluster" "docdb" {
   engine             = "docdb"
   master_username    = "foo"
   master_password    = "barbut8chars"
+  
 }
 
 
