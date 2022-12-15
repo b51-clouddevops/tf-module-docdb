@@ -6,7 +6,7 @@ resource "aws_docdb_cluster" "docdb" {
   master_password        = "roboshop1"
   db_subnet_group_name   = aws_docdb_subnet_group.docdb.name
   vpc_security_group_ids = [aws_security_group.allows_docdb.id]
-  skip_final_snapshot    = true     # prevents taking snapshot during termination of the instance.
+  skip_final_snapshot    =      # prevents taking snapshot during termination of the instance.
 }
 
 # Creates a subnet group , where our cluster will be hosted on
