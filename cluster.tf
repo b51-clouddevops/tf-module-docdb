@@ -2,8 +2,8 @@
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier     = "roboshop-${var.ENV}"
   engine                 = "docdb"
-  master_username        = "foo"
-  master_password        = "barbut8chars"
+  master_username        = "admin1"
+  master_password        = "roboshop1"
   db_subnet_group_name   = aws_docdb_subnet_group.docdb.name
   vpc_security_group_ids = [aws_security_group.allows_docdb.id]
 }
