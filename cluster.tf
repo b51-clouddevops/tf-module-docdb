@@ -1,10 +1,11 @@
 # # Creates DocDB Cluster ( Just cluster, not the instances. Instances has to be mentioned/created)
 resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier    = "roboshop-${var.ENV}"
-  engine                = "docdb"
-  master_username       = "foo"
-  master_password       = "barbut8chars"
-  db_subnet_group_name  = aws_docdb_subnet_group.docdb.name
+  cluster_identifier     = "roboshop-${var.ENV}"
+  engine                 = "docdb"
+  master_username        = "foo"
+  master_password        = "barbut8chars"
+  db_subnet_group_name   = aws_docdb_subnet_group.docdb.name
+  vpc_security_group_ids = [aws_security_group.allows_docdb.id]
 }
 
 # Creates a subnet group , where our cluster will be hosted on
