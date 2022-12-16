@@ -9,6 +9,7 @@ resource "aws_docdb_cluster" "docdb" {
   skip_final_snapshot    = true     # prevents taking snapshot during termination of the instance.
 }
 
+
 # Creates a subnet group , where our cluster will be hosted on
 resource "aws_docdb_subnet_group" "docdb" {
   name       = "roboshop-docdb-${var.ENV}"
