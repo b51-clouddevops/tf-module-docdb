@@ -1,7 +1,7 @@
-resource "null_resource" "schema" {
+resource "null_resource" "mongod-schema" {
   provisioner "local-exec" {
 command = <<EOF 
-        cd /tmp 
+        cd /tmp/
         curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
         unzip -o mongodb.zip 
         cd mongodb-main 
