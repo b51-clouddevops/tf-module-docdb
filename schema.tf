@@ -6,7 +6,7 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/a
 unzip -o mongodb.zip 
 cd mongodb-main 
 wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
-mongo --ssl --host  --sslCAFile rds-combined-ca-bundle.pem --username admin1 --password roboshop1
+mongo --ssl --host :27017 --sslCAFile rds-combined-ca-bundle.pem --username admin1 --password roboshop1
 
 
 EOF 
