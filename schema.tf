@@ -1,6 +1,8 @@
 # Loads the schema
 resource "null_resource" "mongodb-schema" { 
 
+  depends_on = ["aws_docdb_cluster" "docdb]
+
   provisioner "local-exec" {
 command = <<EOF
   cd /tmp/
