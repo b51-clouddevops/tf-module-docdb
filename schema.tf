@@ -13,7 +13,7 @@ command = <<EOF
   cd mongodb-main 
   mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile /tmp/rds-combined-ca-bundle.pem --username admin1 --password roboshop1 < catalogue.js
   mongo --ssl --host ${aws_docdb_cluster.docdb.endpoint}:27017 --sslCAFile /tmp/rds-combined-ca-bundle.pem --username admin1 --password roboshop1 < users.js
-  
+  mongo --ssl --host roboshop-dev.cluster-ciqb6xvrbz0q.us-east-1.docdb.amazonaws.com:27017 --sslCAFile rds-combined-ca-bundle.pem --username admin1 --password <insertYourPassword>
 EOF   
   }
 }
