@@ -1,7 +1,8 @@
 # Loads the schema
 resource "null_resource" "mongodb-schema" { 
-
-  depends_on = ["aws_docdb_cluster" "docdb]
+  
+  # This ensures that schema will load only after the creation of DocumentDb
+  depends_on = [aws_docdb_cluster.docdb]
 
   provisioner "local-exec" {
 command = <<EOF
