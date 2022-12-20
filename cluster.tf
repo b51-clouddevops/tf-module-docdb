@@ -22,13 +22,14 @@ resource "aws_docdb_subnet_group" "docdb" {
 
 # Creates the nodes needed for the created DOCDB Cluster
 resource "aws_docdb_cluster_instance" "cluster_instances" {
-  count              = 
+  count              = var.DOCDB_INSTANCE_COUNT
   identifier         = "roboshop-docdb-${var.ENV}"
   cluster_identifier = aws_docdb_cluster.docdb.id
+  instance_class     = var.DOCDB_PORT_INSTANCE_CLASS
   instance_class     = "db.t3.medium"
 }
 
-# variable "DOCDB_PORT" {}
-# variable "DOCDB_PORT_STORAGE" {}
+# variable "DOCDB_PORT" {}   =2 7107
+# variable "DOCDB_INSTANCE_COUNT" {} = 1 
 # variable "DOCDB_PORTL_ENGINE_VERSION" {}
-# variable "DOCDB_PORT_INSTANCE_CLASS" {}
+# variable "DOCDB_PORT_INSTANCE_CLASS" {} = db.t3.medium
