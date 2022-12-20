@@ -6,16 +6,16 @@ resource "aws_security_group" "allows_docdb" {
 
   ingress {
     description      = "Allow DocDB from default VPC"
-    from_port        = 27017
-    to_port          = 27017
+    from_port        = var.DOCDB_PORT
+    to_port          = var.DOCDB_PORT
     protocol         = "tcp"
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.DEFAULT_VPC_CIDR]
   }
 
   ingress {
     description      = "Allow DocDB from default VPC"
-    from_port        = 27017
-    to_port          = 27017
+    from_port        = var.DOCDB_PORT
+    to_port          = var.DOCDB_PORT
     protocol         = "tcp"
     cidr_blocks      = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
@@ -34,7 +34,3 @@ resource "aws_security_group" "allows_docdb" {
 }
 
 
-# variable "RDS_MYSQL_PORT" {}
-# variable "RDS_MYSQL_STORAGE" {}
-# variable "RDS_MYSQL_ENGINE_VERSION" {}
-# variable "RDS_MYSQL_INSTANCE_CLASS" {}
