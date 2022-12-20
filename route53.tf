@@ -1,7 +1,7 @@
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.primary.zone_id
-  name    = "www.example.com"
-  type    = "A"
+  zone_id = zoneID can be fetched from VPC Outputs
+  name    = zone name can be fetched from VPC Outputs
+  type    = "CNAME"
   ttl     = 300
   records = [aws_eip.lb.public_ip]
 }
