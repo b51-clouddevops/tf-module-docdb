@@ -28,7 +28,3 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   instance_class     = var.DOCDB_PORT_INSTANCE_CLASS
 }
 
-# variable "DOCDB_PORT" {}   =2 7107
-# variable "DOCDB_INSTANCE_COUNT" {} = 1 
-# variable "DOCDB_PORTL_ENGINE_VERSION" {}
-# variable "DOCDB_PORT_INSTANCE_CLASS" {} = db.t3.medium
