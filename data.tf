@@ -11,6 +11,6 @@ data "aws_secretsmanager_secret_version" "secrets" {
   secret_id = "robot/secrets"
 }
 
-output "data-op" {
+output "data" {
   value = data.aws_secretsmanager_secret_version.secrets
 }
