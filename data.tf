@@ -13,13 +13,14 @@ data "aws_secretsmanager_secret" "secrets" {
   name = "robot/secrets"
 }
 
-# Fecthing the ID of the secret
+# Fecthing the ID of the secret version of the above secret
 data "aws_secretsmanager_secret_version" "secrets" {
   secret_id = data.aws_secretsmanager_secret.secrets.id
 }
 
+# Fetching the secret value of the above secret
 output "data" {
-  value = jsondecode(aws_secretsmanager_secret_version.secrets.secret_string)["key1"]
+  value = jsondecode(aws_secretsmanager_secret_version.secrets.secret_string)["DOCDB_USERNAME"]
 }
 
 # output "data" {
