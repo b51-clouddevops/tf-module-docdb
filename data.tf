@@ -8,8 +8,8 @@ data "terraform_remote_state" "vpc" {
 }
 
 
-data "aws_secretsmanager_secret" "by-name" {
-  name = "example"
+data "aws_secretsmanager_secret" "secrets" {
+  name = "robot/secrets"
 }
 
 # data "aws_secretsmanager_secret_version" "secrets" {
