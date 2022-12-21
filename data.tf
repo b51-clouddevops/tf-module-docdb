@@ -9,18 +9,18 @@ data "terraform_remote_state" "vpc" {
 
 
 # Fecthing the information of the existing secret which has multiple values
-data "aws_secretsmanager_secret" "secrets" {
+data "aws_secretsmanager_secret" "robot-secrets" {
   name = "robot/secrets"
 }
 
 # Fecthing the ID of the secret version of the above secret
-data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id = data.aws_secretsmanager_secret.secrets.id
+data "aws_secretsmanager_secret_version" "robot-secrets" {
+  secret_id = data.aws_secretsmanager_secret.robot-secrets.id
 }
 
 # Fetching the secret value of the above secret
 output "data" {
-  value = jsondecode(aws_secretsmanager_secret_version.secrets.secret_string)["DOCDB_USERNAME"]
+  value = jsondecode(aws_secretsmanager_secret_version.robot-secrets.secret_string)["DOCDB_USERNAME"]
 }
 
 # output "data" {
