@@ -8,10 +8,12 @@ data "terraform_remote_state" "vpc" {
 }
 
 
+# Fecthing the information of the existing secret which has multiple values
 data "aws_secretsmanager_secret" "secrets" {
   name = "robot/secrets"
 }
 
+# Fecthing the ID of the secret
 data "aws_secretsmanager_secret_version" "secrets" {
   secret_id = data.aws_secretsmanager_secret.secrets.id
 }
