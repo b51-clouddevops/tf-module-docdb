@@ -23,6 +23,3 @@ output "data" {
   value = jsondecode(data.aws_secretsmanager_secret_version.robot-secrets.secret_string)["DOCDB_USERNAME"]
 }
 
-# output "data" {
-#   value = data.aws_secretsmanager_secret_version.secrets
-# }
